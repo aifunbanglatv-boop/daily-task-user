@@ -267,7 +267,7 @@
             db.ref('settings').on('value', snap => {
                 if(snap.exists()) {
                     SETTINGS = snap.val();
-                    document.getElementById('refBonusText').innerText = (SETTINGS.refB || 0) + "Poisha";
+                    document.getElementById('refBonusText').innerText = (SETTINGS.refB || 0) + "";
                     if(SETTINGS.botUser) document.getElementById('refLink').innerText = `https://t.me/${SETTINGS.botUser}?start=ref_${state.id}`;
                     if(SETTINGS.tgLink) document.getElementById('tgBtn').href = SETTINGS.tgLink;
                     if(SETTINGS.ytLink) document.getElementById('ytBtn').href = SETTINGS.ytLink;
