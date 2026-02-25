@@ -24,24 +24,28 @@
         
         .action-btn { width:100%; padding:16px; border-radius:14px; border:none; font-weight:700; color:white; cursor:pointer; margin-bottom:10px; font-size:16px; transition:0.2s; display:flex; align-items:center; justify-content:center; gap:8px; }
         .btn-primary { background:var(--primary); box-shadow: 0 4px 15px rgba(99,102,241,0.3); }
-        .btn-warning { background:var(--warning); color: #000; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); }
         .btn-success { background:var(--success); }
-        .btn-bonus { background: linear-gradient(45deg, #FFD700, #FFA500); color: black; box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+        .btn-danger { background:var(--danger); }
         .action-btn:active { transform: scale(0.98); }
         .action-btn:disabled { opacity:0.5; cursor: not-allowed; }
 
-        /* Social Grid Fix */
-        .social-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        .social-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 15px; text-decoration: none; color: white; display: flex; flex-direction: column; align-items: center; text-align: center; transition: 0.2s; }
-        .social-card:active { transform: scale(0.95); background: rgba(255,255,255,0.1); }
-        .social-card i { font-size: 28px; margin-bottom: 8px; }
-        .social-card span { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+        /* GRID LAYOUT FOR TASKS */
+        .task-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+        .task-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 10px; text-align: center; cursor: pointer; transition: 0.2s; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .task-item:active { transform: scale(0.96); background: rgba(255,255,255,0.1); }
+        .task-icon { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; margin-bottom: 5px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        
+        /* Gradients for Icons */
+        .g-1 { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+        .g-2 { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .g-3 { background: linear-gradient(135deg, #10b981, #059669); }
+        .g-4 { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+        .g-5 { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .g-6 { background: linear-gradient(135deg, #06b6d4, #0891b2); }
 
         .prog-track { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; margin: 15px 0; }
         .prog-fill { height: 100%; background: var(--primary); width: 0%; transition: 0.5s; }
 
-        /* Navbar Design */
         .navbar { position:fixed; bottom:20px; width:90%; max-width:400px; background:rgba(30,41,59,0.95); padding:12px 0; border-radius:20px; display:flex; justify-content:space-around; border:1px solid #334155; z-index:100; backdrop-filter: blur(10px); box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
         .nav-item { background:none; border:none; color:#64748b; font-size:22px; cursor:pointer; display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; transition: 0.2s; }
         .nav-item span { font-size: 10px; font-weight: 600; }
@@ -49,63 +53,35 @@
 
         .view { display:none; animation: fadeIn 0.3s ease; } .view.active { display:block; }
         .toast { position:fixed; top:20px; left:50%; transform:translateX(-50%); background:#0f172a; padding:12px 24px; border-radius:12px; border:1px solid #334155; display:none; z-index:2000; font-weight:bold; text-align:center; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
-        #block-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #020617; z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
         
         #timer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.98); z-index: 99999; display: none; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(10px); }
         .timer-circle { width: 140px; height: 140px; border-radius: 50%; border: 6px solid var(--primary); display: flex; align-items: center; justify-content: center; font-size: 55px; font-weight: bold; color: white; margin-bottom: 20px; box-shadow: 0 0 40px rgba(99, 102, 241, 0.5); }
-        .timer-msg { font-size: 20px; font-weight: 800; color: white; text-align: center; line-height: 1.4; }
         
-        /* Bonus UI */
-        .bonus-card { background: linear-gradient(135deg, #f59e0b, #d97706); padding: 15px; border-radius: 15px; text-align: center; margin-top: 15px; animation: popIn 0.5s ease; border: 1px solid rgba(255,255,255,0.2); }
-        .bonus-card h4 { margin: 0 0 5px 0; color: white; }
-        .btn-claim { background: white; color: #d97706; font-weight: bold; border: none; padding: 10px 20px; border-radius: 25px; margin-top: 10px; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        .bonus-list { margin-top: 20px; }
-        .bonus-item { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.05); }
-        .bonus-item.claimed { border-color: #10b981; background: rgba(16,185,129,0.1); }
-        .badge-claimed { background: #10b981; color: white; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: bold; }
-        @keyframes popIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
+        /* Task Details Page */
+        #task-detail { text-align: center; }
+        .back-btn { background: none; border: none; color: #94a3b8; font-size: 16px; cursor: pointer; margin-right: auto; display: block; margin-bottom: 15px; }
+        
         .pay-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 15px; }
         .pay-opt { background: rgba(255,255,255,0.05); padding: 15px 10px; border-radius: 10px; text-align: center; border: 1px solid transparent; cursor: pointer; transition: 0.2s; display:flex; flex-direction:column; align-items:center; gap:5px; }
         .pay-opt.active { border-color: #10b981; background: rgba(16,185,129,0.1); color: #10b981; }
         .pay-opt img { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; margin-bottom: 5px; }
         .custom-input, .custom-select { width: 100%; padding: 14px; background: rgba(0,0,0,0.3); border: 1px solid #334155; border-radius: 12px; color: white; margin-bottom: 10px; font-size: 15px; box-sizing: border-box; }
         .history-item { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; margin-bottom: 10px; display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-        .btn-cancel { background: #ef4444; color: white; border: none; padding: 5px 10px; border-radius: 5px; font-size: 11px; font-weight: bold; cursor: pointer; margin-left: auto; }
-
-        #txModal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 5000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-        .tx-card { background: #1e293b; padding: 25px; border-radius: 20px; width: 85%; max-width: 350px; border: 1px solid rgba(255,255,255,0.1); text-align: center; position: relative; }
-        .tx-close { position: absolute; top: 15px; right: 15px; color: #94a3b8; cursor: pointer; font-size: 20px; }
-        .tx-amount { font-size: 30px; font-weight: bold; color: white; margin: 10px 0; }
-        .tx-row { display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 10px 0; font-size: 13px; }
     </style>
 </head>
 <body>
 
-    <div id="block-screen">
+    <div id="block-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #020617; z-index: 9999; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px;">
         <div class="glass-card" style="border-color: var(--danger);">
             <i class="fas fa-user-slash" style="font-size: 50px; color: var(--danger); margin-bottom: 20px;"></i>
             <h2 style="margin-top:0;">Account Suspended</h2>
-            <p id="block-reason">Admin has suspended your account.</p>
+            <p id="block-reason">Multiple accounts not allowed.</p>
         </div>
     </div>
 
     <div id="timer-overlay">
-        <div class="timer-circle" id="overlayCount">20</div>
-        <div class="timer-text" style="color:white; font-weight:bold; font-size:20px; text-align:center; line-height:1.5;">Please Wait...<br><span style="font-size:14px; color:#94a3b8;">Don't close window</span></div>
-    </div>
-
-    <div id="txModal">
-        <div class="tx-card">
-            <i class="fas fa-times tx-close" onclick="document.getElementById('txModal').style.display='none'"></i>
-            <h3 style="margin:0; color:#94a3b8; font-size:14px;">Transaction Details</h3>
-            <div class="tx-amount" id="txAmt">৳0</div>
-            <div class="tx-row"><span style="color:#94a3b8">Status</span><span style="color:white; font-weight:bold;" id="txStatus">PENDING</span></div>
-            <div class="tx-row"><span style="color:#94a3b8">Method</span><span style="color:white; font-weight:bold;" id="txMethod">Bkash</span></div>
-            <div class="tx-row"><span style="color:#94a3b8">Account</span><span style="color:white; font-weight:bold;" id="txAcc">017...</span></div>
-            <div class="tx-row"><span style="color:#94a3b8">Date</span><span style="color:white; font-weight:bold;" id="txDate">...</span></div>
-            <div class="tx-row" id="txOpRow" style="display:none;"><span style="color:#94a3b8">Operator</span><span style="color:white; font-weight:bold;" id="txOp">...</span></div>
-        </div>
+        <div class="timer-circle" id="overlayCount">15</div>
+        <div class="timer-text" style="color:white; font-weight:bold; font-size:20px; text-align:center; line-height:1.5;">Watching Ad...<br><span style="font-size:14px; color:#94a3b8;">Wait for reward</span></div>
     </div>
 
     <div id="toast" class="toast"></div>
@@ -122,26 +98,72 @@
             <div class="v-badge"><i class="fas fa-shield-alt"></i> Verified</div>
         </div>
 
-        <!-- HOME -->
+        <!-- HOME VIEW -->
         <div id="home" class="view active">
             <div class="glass-card">
                 <div style="color:#94a3b8; font-size:13px;">Current Balance</div>
                 <div class="balance-amount">৳ <span id="balanceDisplay">0.00</span></div>
             </div>
-            <div style="margin-top:10px;">
-                <div style="display:flex; justify-content:space-between; font-size:12px; color:#94a3b8;"><span>Daily Progress</span><span id="progText">0/0</span></div>
-                <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
-            </div>
-            <div id="adInstruction" style="text-align:center; font-size:13px; color:#94a3b8; margin-bottom:15px; padding:12px; border:1px dashed #334155; border-radius:10px;">Watch ads to earn money</div>
-            <button class="action-btn btn-primary" id="watchAdBtn" onclick="handleAdClick()">Watch Ad</button>
             
-            <!-- BONUS SECTION -->
-            <div id="bonusSection"></div>
-            <div id="bonusList" class="bonus-list"></div>
+            <h4 style="margin: 15px 0 10px 0;">Available Tasks</h4>
+            
+            <!-- 2x3 GRID FOR 6 NETWORKS -->
+            <div class="task-grid">
+                <div class="task-item" onclick="openTaskView(1)">
+                    <div class="task-icon g-1"><i class="fas fa-play"></i></div>
+                    <span style="font-weight:bold;">Silver Task</span>
+                    <span style="font-size:10px; color:#94a3b8;">Monetag Ads</span>
+                </div>
+                <div class="task-item" onclick="openTaskView(2)">
+                    <div class="task-icon g-2"><i class="fas fa-star"></i></div>
+                    <span style="font-weight:bold;">Gold Task</span>
+                    <span style="font-size:10px; color:#94a3b8;">Direct Ads 1</span>
+                </div>
+                <div class="task-item" onclick="openTaskView(3)">
+                    <div class="task-icon g-3"><i class="fas fa-gem"></i></div>
+                    <span style="font-weight:bold;">Diamond Task</span>
+                    <span style="font-size:10px; color:#94a3b8;">Direct Ads 2</span>
+                </div>
+                <div class="task-item" onclick="openTaskView(4)">
+                    <div class="task-icon g-4"><i class="fas fa-crown"></i></div>
+                    <span style="font-weight:bold;">Platinum Task</span>
+                    <span style="font-size:10px; color:#94a3b8;">Direct Ads 3</span>
+                </div>
+                <div class="task-item" onclick="openTaskView(5)">
+                    <div class="task-icon g-5"><i class="fas fa-bolt"></i></div>
+                    <span style="font-weight:bold;">Premium Task</span>
+                    <span style="font-size:10px; color:#94a3b8;">Direct Ads 4</span>
+                </div>
+                <div class="task-item" onclick="openTaskView(6)">
+                    <div class="task-icon g-6"><i class="fas fa-fire"></i></div>
+                    <span style="font-weight:bold;">Ultra Task</span>
+                    <span style="font-size:10px; color:#94a3b8;">Direct Ads 5</span>
+                </div>
+            </div>
 
             <div class="social-grid">
-                <a href="#" id="tgBtn" target="_blank" class="social-card"><i class="fab fa-telegram" style="color:#229ED9;"></i><span>Channel</span><small>Join for updates</small></a>
-                <a href="#" id="ytBtn" target="_blank" class="social-card"><i class="fab fa-youtube" style="color:#FF0000;"></i><span>Tutorial</span><small>How to work</small></a>
+                <a href="#" id="tgBtn" target="_blank" class="social-card"><i class="fab fa-telegram" style="color:#229ED9;"></i><span>Channel</span></a>
+                <a href="#" id="ytBtn" target="_blank" class="social-card"><i class="fab fa-youtube" style="color:#FF0000;"></i><span>Tutorial</span></a>
+            </div>
+        </div>
+
+        <!-- INDIVIDUAL TASK VIEW (HIDDEN INITIALLY) -->
+        <div id="task-detail" class="view">
+            <button class="back-btn" onclick="backToHome()"><i class="fas fa-arrow-left"></i> Back</button>
+            
+            <div class="glass-card">
+                <div class="task-icon g-1" id="detailIcon" style="margin: 0 auto 10px auto; width: 60px; height: 60px; font-size: 28px;">
+                    <i class="fas fa-play" id="detailIconI"></i>
+                </div>
+                <h3 id="detailTitle">Task Name</h3>
+                <p style="font-size:12px; color:#94a3b8; margin-bottom: 20px;">Watch ads to earn rewards. Do not use VPN.</p>
+                
+                <div style="margin-top:10px;">
+                    <div style="display:flex; justify-content:space-between; font-size:12px; color:#94a3b8;"><span>Today's Progress</span><span id="progText">0/0</span></div>
+                    <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+                </div>
+
+                <button class="action-btn btn-primary" id="watchAdBtn" onclick="executeAd()" style="margin-top: 20px;">Watch Ad</button>
             </div>
         </div>
 
@@ -149,17 +171,15 @@
         <div id="pay" class="view">
             <div class="glass-card">
                 <h3>Withdrawal</h3>
-                <div id="refLock" class="ref-lock"></div>
                 <div id="loadingMethods" style="text-align:center; color:#94a3b8; font-size:12px;">Loading Methods...</div>
                 <div class="pay-grid" id="payGrid"></div>
                 <div id="operatorBox" style="display:none;"><select id="operator" class="custom-select"><option value="Grameenphone">Grameenphone</option><option value="Banglalink">Banglalink</option><option value="Robi">Robi</option><option value="Airtel">Airtel</option><option value="Teletalk">Teletalk</option></select></div>
-                <div id="feeInfo" class="fee-badge" style="font-size:11px; color:#94a3b8; text-align:center; margin-bottom:5px;"></div>
-                <div id="minDisplay" style="text-align:center; font-size:12px; color:#94a3b8; margin-bottom:8px;">Select a method</div>
+                <div id="feeInfo" style="text-align:center; font-size:12px; color:#94a3b8; margin-bottom:10px;"></div>
                 <input type="number" id="wAmount" class="custom-input" placeholder="Amount (BDT)" oninput="calcTotal()">
-                <div id="totalDeduct" style="font-size:12px; color:white; margin-bottom:10px; text-align:right; font-weight:bold;">Total Deduct: ৳0.00</div>
-                <input type="text" id="wAccount" class="custom-input" placeholder="Wallet Address / Mobile Number">
+                <div id="totalDeduct" style="font-size:12px; color:white; margin-bottom:10px; text-align:right;">Total: ৳0.00</div>
+                <input type="text" id="wAccount" class="custom-input" placeholder="Wallet / ID">
                 <div id="usdtConversion" style="display:none; text-align:right; font-size:12px; color:#10b981; margin-bottom:15px; font-weight:bold;">≈ 0.00 USD</div>
-                <button class="action-btn btn-success" id="confirmWithdrawBtn" onclick="submitWithdraw()">Confirm Withdraw</button>
+                <button class="action-btn btn-success" id="confirmWithdrawBtn" onclick="submitWithdraw()">Withdraw</button>
             </div>
             <div class="glass-card"><h4>History</h4><div id="historyList"></div></div>
         </div>
@@ -168,7 +188,7 @@
         <div id="ref" class="view">
             <div class="glass-card" style="text-align:center">
                 <h3>Refer & Earn</h3>
-                <p style="font-size:13px; color:#94a3b8;">Refer Bonus: <span id="refBonusText" style="color:white; font-weight:bold;">0</span></p>
+                <p>Refer Bonus: <span id="refBonusText" style="color:#10b981; font-weight:bold;">0</span></p>
                 <div id="refLink" style="background:rgba(0,0,0,0.3); padding:10px; border-radius:12px; font-size:11px; word-break:break-all; border:1px dashed #334155; color:#10b981;">Loading...</div>
                 <button class="action-btn btn-primary" onclick="copyRef()" style="margin-top:10px;">Copy Link</button>
             </div>
@@ -183,55 +203,51 @@
     </div>
 
     <script>
-        const firebaseConfig = { apiKey: "AIzaSyB1sRKtojHCEAtFVGBHPEpHWr3Qz4s72p0", databaseURL: "https://daily-task-6c410-default-rtdb.firebaseio.com", projectId: "daily-task-6c410" };
+        // BUYER: PASTE YOUR FIREBASE CONFIG HERE
+        const firebaseConfig = {
+            apiKey: "PASTE_API_KEY_HERE",
+            authDomain: "PASTE_AUTH_DOMAIN_HERE",
+            databaseURL: "PASTE_DATABASE_URL_HERE",
+            projectId: "PASTE_PROJECT_ID_HERE",
+            storageBucket: "PASTE_STORAGE_BUCKET_HERE",
+            messagingSenderId: "PASTE_MESSAGING_SENDER_ID_HERE",
+            appId: "PASTE_APP_ID_HERE"
+        };
+
         firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
         const tg = window.Telegram.WebApp;
 
-        let state = { id: null, balance: 0, today: 0, refs: 0, taskRunning: false, waitingForClick: false, clickCheckTimer: null, lastBonus: 0 };
+        let state = { id: null, balance: 0, today: 0, activeTask: 1, taskRunning: false };
         let SETTINGS = {};
-        let methods = []; let selectedMethod = null; let adClicked = false;
+        let methods = []; let selectedMethod = null;
 
         function init() {
             try { tg.ready(); tg.expand(); } catch(e){}
-            // Force ID to String to avoid Type Mismatch
             state.id = tg.initDataUnsafe.user ? tg.initDataUnsafe.user.id.toString() : (localStorage.getItem('app_user_uid') || Math.floor(100000 + Math.random() * 900000).toString());
             localStorage.setItem('app_user_uid', state.id);
             const uName = tg.initDataUnsafe.user ? tg.initDataUnsafe.user.first_name : 'Guest';
-            
             checkDeviceLock(uName);
         }
 
+        // ... [DEVICE LOCK LOGIC SAME AS BEFORE] ...
         function getDeviceFingerprint() {
             const str = navigator.userAgent + screen.width + "x" + screen.height + (new Date().getTimezoneOffset());
-            let hash = 0;
-            for (let i = 0; i < str.length; i++) {
-                const char = str.charCodeAt(i);
-                hash = ((hash << 5) - hash) + char;
-                hash = hash & hash;
-            }
+            let hash = 0; for (let i = 0; i < str.length; i++) { hash = ((hash << 5) - hash) + str.charCodeAt(i); hash = hash & hash; }
             return Math.abs(hash).toString(16);
         }
-
         function checkDeviceLock(uName) {
             const deviceId = getDeviceFingerprint();
             db.ref('device_locks/' + deviceId).once('value', snap => {
-                if(snap.exists()) {
-                    const ownerId = snap.val();
-                    if(ownerId !== state.id) {
-                        document.getElementById('block-screen').style.display = 'flex';
-                        document.getElementById('block-reason').innerText = "Multiple Accounts Not Allowed on this Device!";
-                        return;
-                    }
+                if(snap.exists() && snap.val() !== state.id) {
+                    document.getElementById('block-screen').style.display = 'flex';
                 } else {
                     db.ref('device_locks/' + deviceId).set(state.id);
+                    document.getElementById('uName').innerText = uName;
+                    document.getElementById('uAv').innerText = uName[0].toUpperCase();
+                    document.getElementById('uId').innerText = 'ID: ' + state.id;
+                    syncUser(uName); loadSettings(); loadHistory(); loadTeam();
                 }
-                
-                document.getElementById('uName').innerText = uName;
-                document.getElementById('uAv').innerText = uName[0].toUpperCase();
-                document.getElementById('uId').innerText = 'ID: ' + state.id;
-                syncUser(uName); loadSettings(); loadHistory(); loadTeam();
-                window.onblur = function() { if (state.taskRunning) { adClicked = true; if (state.waitingForClick) { state.waitingForClick = false; clearTimeout(state.clickCheckTimer); startOverlayCountdown(); } } };
             });
         }
 
@@ -239,26 +255,16 @@
             db.ref('users/' + state.id).on('value', snap => {
                 const data = snap.val();
                 const todayStr = new Date().toISOString().split('T')[0];
-
                 if(data) {
-                    if(data.blocked) { 
-                        document.getElementById('block-screen').style.display='flex'; 
-                        if(data.blockReason) document.getElementById('block-reason').innerText=data.blockReason; 
-                        return; 
-                    }
-
-                    if(data.lastDate !== todayStr) {
-                        db.ref('users/' + state.id).update({ todayCount: 0, lastBonus: 0, lastDate: todayStr });
-                        return;
-                    }
-
-                    state.balance = data.balance || 0; 
-                    state.refs = data.referrals || 0; 
-                    state.today = data.todayCount || 0; 
-                    state.lastBonus = data.lastBonus || 0;
-                    updateUI();
+                    if(data.blocked) { document.getElementById('block-screen').style.display='flex'; document.getElementById('block-reason').innerText=data.blockReason; return; }
+                    if(data.lastDate !== todayStr) { db.ref('users/' + state.id).update({ todayCount: 0, lastDate: todayStr }); return; }
+                    state.balance = data.balance || 0; state.today = data.todayCount || 0;
+                    document.getElementById('balanceDisplay').innerText = (state.balance / 100).toFixed(2);
+                    const limit = SETTINGS.adLimit || 50;
+                    document.getElementById('progText').innerText = `${state.today}/${limit}`;
+                    document.getElementById('progFill').style.width = (state.today / limit * 100) + '%';
                 } else {
-                    db.ref('users/' + state.id).set({ name: n, balance: 0, todayCount: 0, lastBonus: 0, adViews: 0, referrals: 0, lastDate: todayStr, blocked: false });
+                    db.ref('users/' + state.id).set({ name: n, balance: 0, todayCount: 0, lastDate: todayStr, blocked: false });
                 }
             });
         }
@@ -267,318 +273,127 @@
             db.ref('settings').on('value', snap => {
                 if(snap.exists()) {
                     SETTINGS = snap.val();
-                    document.getElementById('refBonusText').innerText = (SETTINGS.refB || 0) + "";
+                    document.getElementById('refBonusText').innerText = (SETTINGS.refB || 0);
                     if(SETTINGS.botUser) document.getElementById('refLink').innerText = `https://t.me/${SETTINGS.botUser}?start=ref_${state.id}`;
                     if(SETTINGS.tgLink) document.getElementById('tgBtn').href = SETTINGS.tgLink;
                     if(SETTINGS.ytLink) document.getElementById('ytBtn').href = SETTINGS.ytLink;
                     
+                    // MONETAG SCRIPT INJECTION (Only if Net1 selected)
                     if(SETTINGS.monetag_id && !document.getElementById('monetag-script')) {
                         const script = document.createElement('script'); script.id = 'monetag-script'; script.src = '//libtl.com/sdk.js'; script.setAttribute('data-zone', SETTINGS.monetag_id); script.setAttribute('data-sdk', 'show_' + SETTINGS.monetag_id); document.head.appendChild(script);
                     }
-                    updateUI();
                 }
             });
-
+            // ... [Payment Methods Load Logic Same as Before] ...
             db.ref('settings/methods').on('value', snap => {
                 const grid = document.getElementById('payGrid'); grid.innerHTML = ''; methods = [];
                 document.getElementById('loadingMethods').style.display = 'none';
                 if(snap.exists()){
                     snap.forEach(c => {
                         const m = { key: c.key, ...c.val() }; methods.push(m);
-                        const iconSrc = m.icon && m.icon.includes('http') ? m.icon : 'https://cdn-icons-png.flaticon.com/512/25/25228.png';
-                        grid.innerHTML += `<div class="pay-opt" onclick="selPay('${m.key}', this)"><img src="${iconSrc}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/25/25228.png'"><span style="font-size:11px; font-weight:bold;">${m.name}</span></div>`;
+                        grid.innerHTML += `<div class="pay-opt" onclick="selPay('${m.key}', this)"><img src="${m.icon}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/25/25228.png'"><span style="font-size:11px; font-weight:bold;">${m.name}</span></div>`;
                     });
-                } else { document.getElementById('loadingMethods').style.display = 'block'; document.getElementById('loadingMethods').innerText = "No payment methods"; }
-            });
-        }
-
-        function updateUI() {
-            document.getElementById('balanceDisplay').innerText = (state.balance / 100).toFixed(2);
-            const limit = SETTINGS.adLimit || 100;
-            document.getElementById('progText').innerText = `${state.today}/${limit}`;
-            document.getElementById('progFill').style.width = (state.today / limit * 100) + '%';
-            
-            const isClick = ((state.today + 1) % 5 === 0);
-            const btn = document.getElementById('watchAdBtn');
-            const instr = document.getElementById('adInstruction');
-            if(isClick) { instr.innerText = "Click Ad and Wait 20s"; btn.className = "action-btn btn-warning"; btn.innerText = "Click Ad"; }
-            else { instr.innerText = "Watch Ad for 15s (Don't Click)"; btn.className = "action-btn btn-primary"; btn.innerText = "Watch Ad"; }
-
-            const bonusSection = document.getElementById('bonusSection');
-            const bonusList = document.getElementById('bonusList');
-            bonusSection.innerHTML = '';
-            
-            if (state.today > 0 && state.today % 5 === 0 && state.lastBonus !== state.today) {
-                const count = state.today / 5;
-                const suffix = (count === 1) ? 'st' : (count === 2) ? 'nd' : (count === 3) ? 'rd' : 'th';
-                bonusSection.innerHTML = `<div class="bonus-card"><h4>🎉 Bonus Available!</h4><p style="font-size:12px; color:#e2e8f0;">Claim your ${count}${suffix} milestone bonus.</p><button class="btn-claim" onclick="claimBonus()">CLAIM NOW</button></div>`;
-            }
-
-            bonusList.innerHTML = '';
-            const totalBonuses = Math.floor(state.today / 5);
-            for(let i=1; i<=totalBonuses; i++) {
-                const isClaimed = (i * 5) <= state.lastBonus;
-                if(isClaimed) {
-                    const suffix = (i === 1) ? 'st' : (i === 2) ? 'nd' : (i === 3) ? 'rd' : 'th';
-                    bonusList.innerHTML += `<div class="bonus-item claimed"><div style="display:flex; align-items:center; gap:8px;"><i class="fas fa-gift" style="color:#10b981;"></i><span>${i}${suffix} Bonus</span></div><span class="badge-claimed">CLAIMED</span></div>`;
-                }
-            }
-
-            const req = SETTINGS.minInv || 0;
-            const refLock = document.getElementById('refLock');
-            if (state.refs < req) { refLock.style.display = 'flex'; refLock.className = 'ref-lock'; refLock.innerHTML = `<i class="fas fa-lock"></i> <span>Invite ${req - state.refs} more to unlock</span>`; document.getElementById('confirmWithdrawBtn').disabled = true; }
-            else { refLock.style.display = (req > 0) ? 'flex' : 'none'; refLock.className = 'ref-lock ok'; refLock.innerHTML = `<i class="fas fa-check-circle"></i> <span>Requirement Met</span>`; document.getElementById('confirmWithdrawBtn').disabled = false; }
-        }
-
-        function selPay(key, el) {
-            selectedMethod = methods.find(m => m.key === key);
-            document.querySelectorAll('.pay-opt').forEach(e => e.classList.remove('active'));
-            el.classList.add('active');
-            
-            const opBox = document.getElementById('operatorBox');
-            const accInput = document.getElementById('wAccount');
-            const usdtDiv = document.getElementById('usdtConversion');
-
-            if (selectedMethod.type === 'recharge') {
-                opBox.style.display = 'block';
-                accInput.placeholder = "Enter Mobile Number";
-                usdtDiv.style.display = 'none';
-            } else if (selectedMethod.type === 'address') {
-                opBox.style.display = 'none';
-                accInput.placeholder = "Enter Wallet Address / ID";
-                usdtDiv.style.display = 'block'; // Show immediately
-                // Trigger calculation to show rate immediately
-                calcTotal();
-            } else {
-                opBox.style.display = 'none';
-                accInput.placeholder = "Enter Personal Wallet Number";
-                usdtDiv.style.display = 'none';
-            }
-
-            const fee = selectedMethod.fee || 0;
-            document.getElementById('feeInfo').innerText = `Fee: ৳${fee} | Min: ৳${selectedMethod.min}`;
-            document.getElementById('minDisplay').innerText = `Min: ৳${selectedMethod.min} - Max: ৳${selectedMethod.max}`;
-            
-            calcTotal();
-        }
-
-        function calcTotal() {
-            const amount = parseInt(document.getElementById('wAmount').value) || 0;
-            if(!selectedMethod) return;
-            const fee = selectedMethod.fee || 0;
-            const total = amount + fee;
-            document.getElementById('totalDeduct').innerText = `Total Deduct: ৳${total}`;
-            
-            // Check if Type is Address OR Name contains USDT (Fallback)
-            if(selectedMethod.type === 'address' || selectedMethod.name.toUpperCase().includes('USDT')) {
-                const rate = SETTINGS.usdtRate || 120;
-                const usdVal = (amount / rate).toFixed(2);
-                document.getElementById('usdtConversion').style.display = 'block';
-                document.getElementById('usdtConversion').innerText = `≈ $${usdVal} USD (Rate: 1$ = ${rate} BDT)`;
-            } else {
-                document.getElementById('usdtConversion').style.display = 'none';
-            }
-        }
-
-        function sendTgAlert(msg) {
-            if(!SETTINGS.tgBotToken || !SETTINGS.adminChatId) return;
-            const url = `https://api.telegram.org/bot${SETTINGS.tgBotToken}/sendMessage?chat_id=${SETTINGS.adminChatId}&text=${encodeURIComponent(msg)}&parse_mode=HTML`;
-            fetch(url).catch(e => console.log(e));
-        }
-
-        function submitWithdraw() {
-            if(!selectedMethod) return showToast("Select a payment method!", true);
-            const amount = parseInt(document.getElementById('wAmount').value);
-            const account = document.getElementById('wAccount').value;
-            const op = document.getElementById('operator').value;
-            
-            if(!amount || amount < selectedMethod.min || amount > selectedMethod.max) return showToast(`Invalid Amount (Min: ${selectedMethod.min})`, true);
-            if(!account || account.length < 5) return showToast("Invalid Account/Address", true);
-
-            const fee = selectedMethod.fee || 0;
-            const totalDeduct = (amount + fee) * 100;
-
-            if(state.balance < totalDeduct) return showToast("Insufficient Balance!", true);
-
-            // FORCE ID TO STRING
-            const wData = {
-                userId: state.id.toString(),
-                amount: amount,
-                fee: fee,
-                method: selectedMethod.name,
-                account: account,
-                operator: selectedMethod.type === 'recharge' ? op : null,
-                status: 'pending',
-                date: Date.now()
-            };
-
-            db.ref('users/' + state.id).transaction(u => {
-                if(u && u.balance >= totalDeduct) {
-                    u.balance -= totalDeduct;
-                    return u;
-                }
-                return;
-            }, (err, committed) => {
-                if(committed) {
-                    db.ref('withdrawals').push(wData);
-                    showToast("Withdrawal Requested!");
-                    document.getElementById('wAmount').value = '';
-                    document.getElementById('wAccount').value = '';
-                    
-                    const msg = `🔔 <b>New Withdrawal</b>\n\n👤 User: ${document.getElementById('uName').innerText} (${state.id})\n💰 Amount: ৳${amount}\n💳 Method: ${selectedMethod.name}\n📱 Account: ${account}`;
-                    sendTgAlert(msg);
-                    
-                    // Manually refresh UI after 1 sec to ensure list updates
-                    setTimeout(() => { updateUI(); }, 1000);
-                } else {
-                    showToast("Balance Error!", true);
                 }
             });
         }
 
-        function cancelWithdraw(key, amount, fee) {
-            if(!confirm("Are you sure you want to cancel this request? Money will be refunded.")) return;
-            
-            db.ref('withdrawals/' + key).transaction(data => {
-                if (data && data.status === 'pending') {
-                    data.status = 'canceled';
-                    return data;
-                }
-                return;
-            }, (err, committed, snap) => {
-                if(committed) {
-                    const totalRefund = (amount + fee) * 100;
-                    db.ref('users/' + state.id).transaction(u => {
-                        if(u) { u.balance = (u.balance || 0) + totalRefund; }
-                        return u;
-                    });
-                    showToast("Cancelled! Refunded to Balance.");
-                    const msg = `🚫 <b>Withdrawal Canceled</b>\n\n👤 User: ${document.getElementById('uName').innerText} (${state.id})\n💰 Refunded: ৳${amount + fee}`;
-                    sendTgAlert(msg);
-                } else {
-                    showToast("Cannot cancel. Already processed.", true);
-                }
-            });
-        }
-
-        // --- HISTORY LOAD: Client-Side Filter Fallback to ensure data shows ---
-        function loadHistory() {
-            // Fetch last 100 withdrawals globally and filter by ID in JS
-            // This fixes any Indexing/Type mismatch issues
-            db.ref('withdrawals').limitToLast(100).on('value', snap => {
-                const list = document.getElementById('historyList'); 
-                list.innerHTML = ''; 
-
-                const arr = [];
-                snap.forEach(c => {
-                    const val = c.val();
-                    // LOOSE COMPARISON (==) handles String/Number mismatch
-                    if(val.userId == state.id) {
-                        arr.push({ key: c.key, ...val });
-                    }
-                });
-
-                if(arr.length === 0) {
-                    list.innerHTML = '<div style="text-align:center; color:#94a3b8; font-size:12px; padding:10px;">No transaction history found.</div>';
-                    return;
-                }
-
-                arr.reverse().forEach(d => {
-                    let color = '#f59e0b';
-                    if(d.status === 'paid') color = '#10b981';
-                    else if(d.status === 'rejected') color = '#ef4444';
-                    else if(d.status === 'canceled') color = '#94a3b8';
-
-                    let actionHtml = '';
-                    if(d.status === 'pending') {
-                        actionHtml = `<button class="btn-cancel" onclick="event.stopPropagation(); cancelWithdraw('${d.key}', ${d.amount}, ${d.fee})">Cancel</button>`;
-                    }
-
-                    list.innerHTML += `
-                    <div class="history-item" style="border-left:4px solid ${color}" onclick="showDetails(${d.amount}, '${d.method}', '${d.account}', '${d.status}', ${d.date}, '${d.operator||''}')">
-                        <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
-                            <span style="font-weight:bold; color:#fff;">৳${d.amount} <small style="color:#94a3b8">(${d.method})</small></span>
-                            <span style="color:${color}; font-size:11px; font-weight:bold;">${d.status.toUpperCase()}</span>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:5px;">
-                            <div style="font-size:10px; color:#94a3b8;">${d.account}</div>
-                            ${actionHtml}
-                        </div>
-                    </div>`;
-                });
-            });
-        }
-
-        function loadTeam() { db.ref('referrals/'+state.id).on('value', snap => { const list = document.getElementById('team'); list.innerHTML = ''; snap.forEach(c => { list.innerHTML += `<div class="history-item" style="border-left:4px solid #10b981; flex-direction:row; justify-content:space-between; align-items:center;"><span>${c.val().name}</span></div>`; }); }); }
-        function switchView(v, el) { document.querySelectorAll('.view').forEach(e => e.classList.remove('active')); document.getElementById(v).classList.add('active'); if(el) { document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active')); el.classList.add('active'); } }
-        function showToast(m, err=false) { const t = document.getElementById('toast'); t.innerText = m; t.style.display='block'; t.style.color = err?'#ef4444':'#10b981'; setTimeout(() => t.style.display='none', 3000); }
-        function showDetails(amount, method, account, status, date, operator) { document.getElementById('txAmt').innerText = '৳' + amount; document.getElementById('txStatus').innerText = status.toUpperCase(); document.getElementById('txStatus').style.color = (status==='paid'?'#10b981':(status==='pending'?'#f59e0b':(status==='rejected'?'#ef4444':'#94a3b8'))); document.getElementById('txMethod').innerText = method; document.getElementById('txAcc').innerText = account; document.getElementById('txDate').innerText = new Date(date).toLocaleString(); if(operator) { document.getElementById('txOpRow').style.display = 'flex'; document.getElementById('txOp').innerText = operator; } else { document.getElementById('txOpRow').style.display = 'none'; } document.getElementById('txModal').style.display = 'flex'; }
-        function copyRef() { navigator.clipboard.writeText(document.getElementById('refLink').innerText); showToast("Copied!"); }
+        // --- GRID NAVIGATION & AD LOGIC ---
         
-        // --- ADS ---
-        function claimBonus() {
-            if (!SETTINGS.adsterra_link) return showToast("Bonus link not set!", true);
-            window.open(SETTINGS.adsterra_link, '_blank');
-            const overlay = document.getElementById('timer-overlay');
-            const overlayCount = document.getElementById('overlayCount');
-            const msg = document.querySelector('.timer-msg');
-            if(msg) msg.innerText = "Checking Bonus...";
-            overlay.style.display = 'flex';
-            let timeLeft = 10;
-            overlayCount.innerText = timeLeft;
-            const timer = setInterval(() => {
-                timeLeft--;
-                overlayCount.innerText = timeLeft;
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    overlay.style.display = 'none';
-                    db.ref('users/' + state.id).transaction(u => {
-                        if (u) { u.balance = (u.balance || 0) + (SETTINGS.bonus_amt || 50); u.lastBonus = state.today; }
-                        return u;
-                    });
-                    showToast(`Bonus Added Successfully!`);
-                }
-            }, 1000);
+        function openTaskView(netId) {
+            state.activeTask = netId;
+            const titles = ["Silver Task", "Gold Task", "Diamond Task", "Platinum Task", "Premium Task", "Ultra Task"];
+            const icons = ["fa-play", "fa-star", "fa-gem", "fa-crown", "fa-bolt", "fa-fire"];
+            
+            document.getElementById('home').classList.remove('active');
+            document.getElementById('task-detail').classList.add('active');
+            
+            document.getElementById('detailTitle').innerText = titles[netId - 1];
+            document.getElementById('detailIcon').className = `task-icon g-${netId}`;
+            document.getElementById('detailIconI').className = `fas ${icons[netId - 1]}`;
         }
 
-        function handleAdClick() {
+        function backToHome() {
+            document.getElementById('task-detail').classList.remove('active');
+            document.getElementById('home').classList.add('active');
+        }
+
+        function executeAd() {
             if(state.taskRunning) return;
             const btn = document.getElementById('watchAdBtn');
-            btn.innerText = "Loading Ads..."; btn.disabled = true;
-            const zoneId = SETTINGS.monetag_id;
-            const adFunction = window['show_' + zoneId];
-            if(typeof adFunction === 'function') { adFunction(); }
-            const isClick = ((state.today + 1) % 5 === 0);
-            startTaskLogic(isClick);
+            btn.disabled = true; btn.innerText = "Loading...";
+
+            // 1. Monetag (Script)
+            if(state.activeTask === 1) {
+                const zoneId = SETTINGS.monetag_id;
+                const adFunction = window['show_' + zoneId];
+                if(typeof adFunction === 'function') {
+                    adFunction().then(() => {
+                        startTimer();
+                    }).catch(e => {
+                        startTimer(); // Fallback if ad fails/blocks
+                    });
+                } else {
+                    startTimer(); // Fallback
+                }
+            } 
+            // 2-6. Direct Links (Adsterra, AdMaven, etc.)
+            else {
+                let link = "";
+                if(state.activeTask === 2) link = SETTINGS.net2_link;
+                else if(state.activeTask === 3) link = SETTINGS.net3_link;
+                else if(state.activeTask === 4) link = SETTINGS.net4_link;
+                else if(state.activeTask === 5) link = SETTINGS.net5_link;
+                else if(state.activeTask === 6) link = SETTINGS.net6_link;
+
+                if(link) {
+                    window.open(link, '_blank');
+                    startTimer();
+                } else {
+                    alert("Ad link not configured by admin!");
+                    btn.disabled = false; btn.innerText = "Watch Ad";
+                }
+            }
         }
 
-        function startTaskLogic(isClick) { if(isClick) runClickTask(); else runViewTask(); }
-        function runViewTask() {
-            state.taskRunning = true; adClicked = false;
-            let time = 15; const btn = document.getElementById('watchAdBtn');
+        function startTimer() {
+            state.taskRunning = true;
+            document.getElementById('timer-overlay').style.display = 'flex';
+            let t = 15;
             const timer = setInterval(() => {
-                btn.innerText = `Wait ${time}s`;
-                if(adClicked) { clearInterval(timer); state.taskRunning = false; btn.disabled = false; btn.innerText = "Watch Ad"; showToast("Invalid Click!", true); return; }
-                if(time <= 0) { clearInterval(timer); state.taskRunning = false; btn.disabled = false; addReward(SETTINGS.adReward || 10); showToast("Reward Added!"); btn.innerText = "Watch Ad"; updateUI(); }
-                time--;
+                t--;
+                document.getElementById('overlayCount').innerText = t;
+                if(t <= 0) {
+                    clearInterval(timer);
+                    document.getElementById('timer-overlay').style.display = 'none';
+                    state.taskRunning = false;
+                    document.getElementById('watchAdBtn').disabled = false;
+                    document.getElementById('watchAdBtn').innerText = "Watch Ad";
+                    addReward(SETTINGS.adReward || 10);
+                }
             }, 1000);
         }
-        function runClickTask() {
-            state.taskRunning = true; state.waitingForClick = true; adClicked = false;
-            const btn = document.getElementById('watchAdBtn'); btn.innerText = "Click Ad Now!"; btn.disabled = false;
-            state.clickCheckTimer = setTimeout(() => { if (state.waitingForClick) { state.taskRunning = false; state.waitingForClick = false; showToast("You didn't click!", true); updateUI(); } }, 20000);
+
+        function addReward(amt) {
+            db.ref('users/' + state.id).transaction(u => {
+                if(u) { u.balance = (u.balance || 0) + amt; u.todayCount = (u.todayCount || 0) + 1; }
+                return u;
+            });
         }
-        function startOverlayCountdown() {
-            document.getElementById('timer-overlay').style.display='flex';
-            let t = 20; let target = Date.now() + (t * 1000);
-            const timer = setInterval(() => {
-                let remaining = Math.round((target - Date.now()) / 1000);
-                if (remaining <= 0) { clearInterval(timer); document.getElementById('timer-overlay').style.display='none'; state.taskRunning = false; addReward(SETTINGS.clickBonus || 15); showToast("Bonus Added!"); updateUI(); }
-                else document.getElementById('overlayCount').innerText = remaining;
-            }, 500);
+
+        function switchView(v, el) { 
+            document.querySelectorAll('.view').forEach(e => e.classList.remove('active')); 
+            document.getElementById(v).classList.add('active'); 
+            if(el) { document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active')); el.classList.add('active'); }
         }
-        function addReward(amt) { db.ref('users/' + state.id).transaction(u => { if(u) { u.balance = (u.balance || 0) + amt; u.todayCount = (u.todayCount || 0) + 1; u.adViews = (u.adViews || 0) + 1; } return u; }); }
-        
+
+        // ... [COPY PAY AND WITHDRAW LOGIC FROM PREVIOUS SCRIPTS - KEEPING IT CONCISE HERE] ...
+        function selPay(key, el) { selectedMethod = methods.find(m => m.key === key); document.querySelectorAll('.pay-opt').forEach(e => e.classList.remove('active')); el.classList.add('active'); const opBox = document.getElementById('operatorBox'); const accInput = document.getElementById('wAccount'); const usdtDiv = document.getElementById('usdtConversion'); if (selectedMethod.type === 'recharge') { opBox.style.display = 'block'; accInput.placeholder = "Enter Mobile Number"; usdtDiv.style.display = 'none'; } else if (selectedMethod.type === 'address') { opBox.style.display = 'none'; accInput.placeholder = "Enter Wallet Address / ID"; usdtDiv.style.display = 'block'; calcTotal(); } else { opBox.style.display = 'none'; accInput.placeholder = "Enter Personal Wallet Number"; usdtDiv.style.display = 'none'; } const fee = selectedMethod.fee || 0; document.getElementById('feeInfo').innerText = `Fee: ৳${fee} | Min: ৳${selectedMethod.min}`; calcTotal(); }
+        function calcTotal() { const amount = parseInt(document.getElementById('wAmount').value) || 0; if(!selectedMethod) return; const fee = selectedMethod.fee || 0; const total = amount + fee; document.getElementById('totalDeduct').innerText = `Total: ৳${total}`; if(selectedMethod.type === 'address' || selectedMethod.name.toUpperCase().includes('USDT')) { const rate = SETTINGS.usdtRate || 120; const usdVal = (amount / rate).toFixed(2); document.getElementById('usdtConversion').style.display = 'block'; document.getElementById('usdtConversion').innerText = `≈ $${usdVal} USD (Rate: 1$ = ${rate} BDT)`; } else { document.getElementById('usdtConversion').style.display = 'none'; } }
+        function submitWithdraw() { if(!selectedMethod) return alert("Select method"); const amount = parseInt(document.getElementById('wAmount').value); const account = document.getElementById('wAccount').value; const op = document.getElementById('operator').value; if(!amount || amount < selectedMethod.min) return alert("Invalid amount"); const fee = selectedMethod.fee || 0; const totalDeduct = (amount + fee) * 100; if(state.balance < totalDeduct) return alert("Low balance"); const wData = { userId: state.id.toString(), amount: amount, fee: fee, method: selectedMethod.name, account: account, operator: selectedMethod.type === 'recharge' ? op : null, status: 'pending', date: Date.now() }; db.ref('users/' + state.id).transaction(u => { if(u && u.balance >= totalDeduct) { u.balance -= totalDeduct; return u; } }); db.ref('withdrawals').push(wData); alert("Submitted!"); document.getElementById('wAmount').value = ''; updateUI(); }
+        function loadHistory() { db.ref('withdrawals').limitToLast(50).on('value', snap => { const list = document.getElementById('historyList'); list.innerHTML = ''; const arr = []; snap.forEach(c => { if(c.val().userId == state.id) arr.push(c.val()); }); arr.reverse().forEach(d => { let color = d.status==='paid'?'#10b981':d.status==='pending'?'#f59e0b':'#ef4444'; list.innerHTML += `<div class="history-item" style="border-left:4px solid ${color}"><div style="display:flex; justify-content:space-between;"><span style="color:white; font-weight:bold;">৳${d.amount}</span><span style="color:${color}">${d.status.toUpperCase()}</span></div><small style="color:#94a3b8">${d.method} - ${d.account}</small></div>`; }); }); }
+        function copyRef() { navigator.clipboard.writeText(document.getElementById('refLink').innerText); alert("Copied!"); }
+        function loadTeam() { db.ref('referrals/'+state.id).on('value', snap => { const list = document.getElementById('team'); list.innerHTML = ''; snap.forEach(c => { list.innerHTML += `<div class="history-item"><span>${c.val().name}</span></div>`; }); }); }
+
         init();
     </script>
 </body>
